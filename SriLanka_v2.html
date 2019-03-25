@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <title>KML feature details</title>
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        float: left;
+        height: 100%;
+        width: 100%;
+      }
+      
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    
+    <script>
+
+      function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 10,
+          center: {lat: 7.81, lng: 80.73}
+        });
+
+   
+		var sriLankaBoundary = new google.maps.KmlLayer({
+          url: 'https://drive.google.com/uc?export=download&id=1l63L1ugyv6D7UtPiP0A7lnrw6ZPnuz7z',
+          suppressInfoWindows: true, 
+		  map: map
+        });
+
+		//it looks like the districts layer is not showing up
+		var districts = new google.maps.KmlLayer({
+          url: 'https://drive.google.com/uc?export=download&id=16aIUULdWKlm9IDhFmWPCLBViiGzhYL8H',
+          suppressInfoWindows: true,
+		  map: map
+        });
+
+		var cities = new google.maps.KmlLayer({
+          url: 'https://drive.google.com/uc?export=download&id=1yXOe8tp_y3sFbnJA7VGTM2F0idI1XKFr',
+          suppressInfoWindows: true,
+		  map: map
+        });
+
+		var riverBasins = new google.maps.KmlLayer({
+          url: 'https://drive.google.com/uc?export=download&id=1iDQ3bbcgIahCxN2bTizcH1K9eItWakN-',
+          suppressInfoWindows: true,
+		  map: map
+        });
+
+		var riverTributaries = new google.maps.KmlLayer({
+          url: 'https://drive.google.com/uc?export=download&id=18lrPA8GmOnTxzDAWK9T2lWJSCR9qkjGn',
+          suppressInfoWindows: true,
+		  map: map
+        });
+	
+     }
+
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBfVquUaOXulDFZBoxEiymriRAi7-5rYJQ&callback=initMap">
+    </script>
+  </body>
+</html>
